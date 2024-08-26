@@ -10,7 +10,7 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>teambition-devops</artifactId>
-    <version>${revision}</version>
+    <version>${revision}-${changelist}</version>
     <packaging>hpi</packaging>
     <name>Teambition-DevOps Plugin</name>
     <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
@@ -30,7 +30,8 @@
     </scm>
 
     <properties>
-        <revision>1.0</revision>
+        <revision>1.0.0</revision>
+        <changelist>20240830-SNAPSHOT</changelist>
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
         <jenkins.version>2.440.3</jenkins.version>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
@@ -41,7 +42,7 @@
             <dependency>
                 <groupId>io.jenkins.tools.bom</groupId>
                 <artifactId>bom-2.440.x</artifactId>
-                <version>3193.v330d8248d39e</version>
+                <version>3289.v3ff9637cd241</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -98,7 +99,7 @@
         <dependency>
           <groupId>org.projectlombok</groupId>
           <artifactId>lombok</artifactId>
-          <version>1.18.22</version>
+          <version>1.18.34</version>
           <scope>provided</scope>
         </dependency>
 

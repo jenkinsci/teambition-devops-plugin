@@ -1,6 +1,7 @@
 package io.jenkins.plugins.teambition.resolver;
 
 import hudson.EnvVars;
+import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.scm.ChangeLogSet;
@@ -84,10 +85,11 @@ public class DevOpsRunResolver {
         entity.setTeambitionOrgId(DevOpsGlobalConfig.get().getTeambitionOrgId());
         entity.setJobName(getJobName(envVars));
         entity.setBuildNumber((long) this.run.getNumber());
+        Result runResult = this.run.getResult();
         if (this.run.isBuilding()) {
             entity.setBuildStatus("BUILDING");
-        } else if (this.run.getResult() != null) {
-            entity.setBuildStatus(this.run.getResult().toString());
+        } else if (runResult != null) {
+            entity.setBuildStatus(runResult.toString());
         } else {
             entity.setBuildStatus("UNKNOWN");
         }

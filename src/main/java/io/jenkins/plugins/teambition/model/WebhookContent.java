@@ -5,9 +5,12 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+/**
+ * @author qiuli
+ */
 @Data
 public class WebhookContent {
-    private final String provider = "jenkins";
+    private static final String provider = "jenkins";
     
     private String type;
     private String action;

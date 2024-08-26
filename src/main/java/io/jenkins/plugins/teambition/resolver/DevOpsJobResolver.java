@@ -1,6 +1,7 @@
 package io.jenkins.plugins.teambition.resolver;
 
 import hudson.model.Job;
+import hudson.model.Result;
 import hudson.model.Run;
 import io.jenkins.plugins.teambition.DevOpsGlobalConfig;
 import io.jenkins.plugins.teambition.enums.JobOccasionEnum;
@@ -54,10 +55,11 @@ public class DevOpsJobResolver {
                 buildObj.put("id", lastBuild.getId());
                 buildObj.put("number", lastBuild.getNumber());
                 buildObj.put("building", lastBuild.isBuilding());
+                Result lastBuildResult = lastBuild.getResult();
                 if (lastBuild.isBuilding()) {
                     buildObj.put("result", "BUILDING");
-                } else if (lastBuild.getResult() != null) {
-                    buildObj.put("result", lastBuild.getResult().toString());
+                } else if (lastBuildResult != null) {
+                    buildObj.put("result", lastBuildResult.toString());
                 }
                 buildObj.put("queueId", lastBuild.getQueueId());
                 entity.setLastBuild(buildObj);
